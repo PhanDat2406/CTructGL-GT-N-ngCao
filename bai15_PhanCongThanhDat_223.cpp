@@ -67,23 +67,23 @@ void insertionSort(KhachHang kh[], int n){
 
 
 void timKiemNhiPhan(KhachHang kh[], int n, float X){
-    int left = 0;
-    int right = n - 1;
+    int dau = 0;
+    int cuoi = n - 1;
     int mid;
     int viTri = -1;
 
-    while(left <= right){
-        mid = (left + right) / 2;
+    while(dau <= cuoi){
+        mid = (dau + cuoi) / 2;
 
         if(kh[mid].tongTienThanhToan == X){
             viTri = mid;
             break;
         }
         else if(kh[mid].tongTienThanhToan < X){
-            left = mid + 1;
+            dau = mid + 1;
         }
         else{
-            right = mid - 1;
+            cuoi = mid - 1;
         }
     }
 
@@ -92,15 +92,15 @@ void timKiemNhiPhan(KhachHang kh[], int n, float X){
         return;
     }
 
-    int dau = viTri;
-    int cuoi = viTri;
+    int dauX = viTri;
+    int cuoiX = viTri;
 
-    while(dau > 0 && kh[dau - 1].tongTienThanhToan == X){
-        dau--;
+    while(dauX > 0 && kh[dauX - 1].tongTienThanhToan == X){
+        dauX--;
     }
 
-    while(cuoi < n - 1 && kh[cuoi + 1].tongTienThanhToan == X){
-        cuoi++;
+    while(cuoiX < n - 1 && kh[cuoiX + 1].tongTienThanhToan == X){
+        cuoiX++;
     }
 
     cout<<"Cac khach hang co tong tien thanh toan bang "<<X<<":"<<endl;
@@ -113,7 +113,7 @@ void timKiemNhiPhan(KhachHang kh[], int n, float X){
         <<"|"<<endl;
     cout<<"|----------|--------------------|--------------------|----------|"<<endl;
 
-    for(int i=dau; i<=cuoi; i++){
+    for(int i=dauX; i<=cuoiX; i++){
         cout<<"|"<<left<<setw(10)<<kh[i].maKH
             <<"|"<<setw(20)<<kh[i].tenKH
             <<"|"<<setw(20)<<kh[i].SDT
@@ -123,7 +123,6 @@ void timKiemNhiPhan(KhachHang kh[], int n, float X){
         cout<<"|----------|--------------------|--------------------|----------|"<<endl;
     }
 }
-
 int main(){
     int n;
 
